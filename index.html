@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 국가직 9급 합격권 분석</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="eyebrow">2027 · 국가직 9급 · 예측 모델 </div>
+    <h1>합격 분석</h1>
+    <p>직렬을 선택하고 과목별 점수를 입력하면 2027년 예측 커트라인 대비 합격 확률을 계산합니다.</p>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="panel-head"><div class="panel-num">1</div><h2>응시 정보 입력</h2></div>
+      <div class="panel-body">
+
+        <div class="field">
+          <label>직렬 (모집구분)</label>
+          <select id="jobSelect"></select>
+        </div>
+
+        <div class="row2">
+          <div class="field"><label>국어</label><input type="number" id="s_kor" min="0" max="100" value="80"></div>
+          <div class="field"><label>영어</label><input type="number" id="s_eng" min="0" max="100" value="80"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label id="lbl_m1">전공1</label><input type="number" id="s_m1" min="0" max="100" value="80"></div>
+          <div class="field"><label id="lbl_m2">전공2</label><input type="number" id="s_m2" min="0" max="100" value="80"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>한능검 등급</label><input type="number" id="hangul_grade" min="1" max="6" value="2"></div>
+          <div class="field"><label>가산점 비율(%)</label><input type="number" id="bonus" min="0" max="10" value="0" step="0.5"></div>
+        </div>
+        <div class="hint">가산점: 자격증·취업지원대상자 가산점 등, 없으면 0</div>
+
+        <div class="meta-line" id="jobMeta">직렬을 선택하면 2027 예측 커트라인 정보가 표시됩니다.</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head"><div class="panel-num">2</div><h2>예측 결과</h2></div>
+      <div class="panel-body" id="resultBody">
+        <div class="empty-state">점수를 입력하면 결과가 실시간으로 계산됩니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    본 예측은 2027년 개편 이후 실제 응시 데이터가 없는 상태에서, 국가직 과거 실측 커트라인의 추세회귀와 한국사 제거효과를 결합한 통계적 추정치입니다.<br>
+    합격 확률 = Φ((가산점 반영 평균 − 2027 예측 커트라인) ÷ 예측 표준편차) · 정규분포 누적확률 기준
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
